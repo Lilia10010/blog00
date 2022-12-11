@@ -1,8 +1,7 @@
-import "../styles/globals.css";
-
 import { client, ssrCache } from "../lib/urql";
 
 import type { AppProps } from "next/app";
+import { GlobalStyle } from "../styles/globals";
 import { Provider } from "urql";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -12,6 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }
   return (
     <Provider value={client}>
+      <GlobalStyle />
       <Component {...pageProps} />
     </Provider>
   );
